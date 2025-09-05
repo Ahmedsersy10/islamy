@@ -1,0 +1,84 @@
+name: islamy
+description: A new Flutter project.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.5 <4.0.0"
+
+dependencies:
+  build_runner: null
+  conditional_builder_null_safety: null
+  cupertino_icons: ^1.0.2
+  dartz: null
+  dio: null
+  dots_indicator: null
+  easy_localization: null
+  equatable: null
+  floor: null
+  floor_generator: null
+  flutter:
+    sdk: flutter
+  flutter_bloc: null
+  flutter_phoenix: null
+  flutter_screenutil: null
+  flutter_svg: null
+  geocoding: null
+  get_it: null
+  gif: ^2.3.0
+  google_fonts: null
+  internet_connection_checker: null
+  json_annotation: null
+  json_serializable: null
+  location: null
+  pretty_dio_logger: null
+  retrofit: null
+  retrofit_generator: null
+  shared_preferences: null
+  sqflite: null
+  sqlite3_flutter_libs: null
+  url_launcher: null
+  wakelock_plus: null
+  youtube_player_flutter: null
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/fonts/
+    - assets/images/
+    - assets/images/quran/
+    - assets/json/
+    - assets/translations/
+    - assets/images/pillars/
+
+  fonts:
+    - family: ElMessiri
+      fonts:
+        - asset: assets/fonts/ElMessiri-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/ElMessiri-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/ElMessiri-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/ElMessiri-Regular.ttf
+          weight: 400
+    - family: UthmanTN
+      fonts:
+        - asset: assets/fonts/UthmanTNB.ttf
+          weight: 700
+        - asset: assets/fonts/UthmanTN.ttf
+          weight: 400
+    - family: me_quran
+      fonts:
+        - asset: assets/fonts/me_quran.ttf
+    - family: Hafs
+      fonts:
+        - asset: assets/fonts/Hafs.ttf
