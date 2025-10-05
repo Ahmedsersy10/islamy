@@ -44,8 +44,10 @@ class HomeView extends StatelessWidget {
                 backgroundColor: Theme.of(context).primaryColor,
                 title: Text(
                   AppStrings.home.tr(),
-                  style:
-                      Theme.of(context).textTheme.titleLarge?.copyWith(color: ColorManager.white),
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge
+                      ?.copyWith(color: ColorManager.white),
                 ),
                 leading: IconButton(
                   onPressed: () => _scaffoldKey.currentState?.openDrawer(),
@@ -131,7 +133,8 @@ class HomeView extends StatelessWidget {
                                       },
                                     );
                                   },
-                                  icon: const Icon(Icons.bookmark, color: ColorManager.gold),
+                                  icon: const Icon(Icons.bookmark,
+                                      color: ColorManager.gold),
                                 )
                               : null,
                         ),
@@ -248,8 +251,9 @@ class _HomeCard extends StatelessWidget {
       onTap: onTap,
       child: Card(
         elevation: 3,
-        shadowColor:
-            darkMode ? ColorManager.darkSecondary : ColorManager.lightPrimary.withOpacity(0.4),
+        shadowColor: darkMode
+            ? ColorManager.darkSecondary
+            : ColorManager.lightPrimary.withOpacity(0.4),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppSize.s16.r),
         ),
@@ -264,12 +268,16 @@ class _HomeCard extends StatelessWidget {
                 iconPath,
                 width: AppSize.s50.r,
                 height: AppSize.s50.r,
-                colorFilter: const ColorFilter.mode(ColorManager.white, BlendMode.srcIn),
+                colorFilter:
+                    const ColorFilter.mode(ColorManager.white, BlendMode.srcIn),
               ),
               SizedBox(height: AppSize.s12.h),
               Text(
                 title,
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(color: ColorManager.white),
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(color: ColorManager.white),
                 textAlign: TextAlign.center,
               ),
               if (trailing != null) ...[

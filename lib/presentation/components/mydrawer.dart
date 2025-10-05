@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:islamy/app/utils/custom_container_info.dart';
 import 'package:islamy/presentation/components/separator.dart';
 import '../../../app/resources/resources.dart';
 
@@ -9,27 +10,29 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      width: AppSize.s200 * 1.2,
+      backgroundColor: Theme.of(context).brightness == Brightness.dark
+          ? ColorManager.darkGrey
+          : ColorManager.gold,
+      width: AppSize.s200 * 1.7,
       child: Padding(
         padding: const EdgeInsets.only(top: AppPadding.p40),
         child: Column(
           children: [
-            // Container(
-            //   height: AppSize.s140,
-            //   width: AppSize.s160,
-            //   margin: const EdgeInsets.symmetric(vertical: AppMargin.m20),
-            //   decoration: const BoxDecoration(
-            //       image: DecorationImage(
-            //           image: AssetImage(ImageAsset.launcherIcon), fit: BoxFit.fill)),
+            // Center(
+            //   child: Image.asset(
+            //     "assets/images/splash.png",
+            //     width: 250,
+            //     height: 200,
+            //   ),
             // ),
-            _draweritem(AppStrings.pillars.tr(), () {
-              Navigator.of(context).pushNamed(Routes.pillarsRoute);
-            }),
-            getSeparator(context),
-            // _draweritem(AppStrings.browse.tr(), () {
-            //   Navigator.of(context).pushNamed(Routes.browsenetRoute);
-            // })
+            // getSeparator(context),
+            CustomContainerInfo(
+              titel: "عبداللّه السرسي \nرحمةالله ورضوانه عليه",
+              subtitel:
+                  " هذا التطبيق هو صدقة جارية خالصة لوجه الله تعالى، \nعلى روح أخي عبد الله \n أسأل الله العظيم أن يتقبّلها منّا بقبول حسن، وأن يجعل كل خير أو علم يُستفاد منه في ميزان حسناته إلى يوم الدين، وأن يُنوّر قبره، ويُسكنه الفردوس الأعلى بلا حساب ولا سابق عذاب  ويغفر لنا وله ولجميع المسلمين.",
+              image: "assets/images/عبدالله.jpg",
+              height: 600,
+            )
           ],
         ),
       ),

@@ -31,8 +31,8 @@ ThemeData getApplicationLightTheme() {
   return ThemeData(
     useMaterial3: true,
     primaryColor: ColorManager.lightPrimary,
-    secondaryHeaderColor: ColorManager.white,
-    scaffoldBackgroundColor: ColorManager.lightBackground,
+    secondaryHeaderColor: ColorManager.lightPrimary,
+    scaffoldBackgroundColor: ColorManager.gold,
     canvasColor: ColorManager.lightPrimary,
     splashColor: ColorManager.gold,
     disabledColor: ColorManager.lightGrey,
@@ -94,30 +94,44 @@ ThemeData getApplicationLightTheme() {
       ),
     ),
     textTheme: TextTheme(
-      displayLarge: getBoldStyle(fontSize: FontSize.s32, color: ColorManager.gold),
-      displayMedium: getBoldStyle(fontSize: FontSize.s28, color: ColorManager.gold),
-      displaySmall: getBoldStyle(fontSize: FontSize.s24, color: ColorManager.gold),
+      displayLarge:
+          getBoldStyle(fontSize: FontSize.s32, color: ColorManager.gold),
+      displayMedium:
+          getBoldStyle(fontSize: FontSize.s28, color: ColorManager.gold),
+      displaySmall:
+          getBoldStyle(fontSize: FontSize.s24, color: ColorManager.gold),
 
       //Headline
-      headlineLarge: getSemiBoldStyle(fontSize: FontSize.s20, color: ColorManager.gold),
-      headlineMedium: getSemiBoldStyle(fontSize: FontSize.s18, color: ColorManager.gold),
-      headlineSmall: getSemiBoldStyle(fontSize: FontSize.s16, color: ColorManager.gold),
+      headlineLarge:
+          getSemiBoldStyle(fontSize: FontSize.s20, color: ColorManager.gold),
+      headlineMedium:
+          getSemiBoldStyle(fontSize: FontSize.s18, color: ColorManager.gold),
+      headlineSmall:
+          getSemiBoldStyle(fontSize: FontSize.s16, color: ColorManager.gold),
 
       //Title
-      titleLarge: getMediumStyle(fontSize: FontSize.s20, color: ColorManager.black),
-      titleMedium: getMediumStyle(fontSize: FontSize.s18, color: ColorManager.black),
-      titleSmall: getMediumStyle(fontSize: FontSize.s16, color: ColorManager.black),
+      titleLarge:
+          getMediumStyle(fontSize: FontSize.s20, color: ColorManager.black),
+      titleMedium:
+          getMediumStyle(fontSize: FontSize.s18, color: ColorManager.black),
+      titleSmall:
+          getMediumStyle(fontSize: FontSize.s16, color: ColorManager.black),
 
       //Body
-      bodyLarge: getRegularStyle(fontSize: FontSize.s18, color: ColorManager.black),
-      bodyMedium: getRegularStyle(fontSize: FontSize.s16, color: ColorManager.black),
-      bodySmall: getRegularStyle(fontSize: FontSize.s14, color: ColorManager.black),
+      bodyLarge:
+          getRegularStyle(fontSize: FontSize.s18, color: ColorManager.black),
+      bodyMedium:
+          getRegularStyle(fontSize: FontSize.s16, color: ColorManager.black),
+      bodySmall:
+          getRegularStyle(fontSize: FontSize.s14, color: ColorManager.black),
 
       //label
       //text button
-      labelLarge: getRegularStyle(fontSize: FontSize.s14, color: ColorManager.gold),
+      labelLarge:
+          getRegularStyle(fontSize: FontSize.s14, color: ColorManager.gold),
       //button label
-      labelMedium: getRegularStyle(fontSize: FontSize.s12, color: ColorManager.gold),
+      labelMedium:
+          getRegularStyle(fontSize: FontSize.s12, color: ColorManager.gold),
       //caption
       labelSmall: getRegularStyle(
         fontSize: FontSize.s10,
@@ -249,14 +263,20 @@ ThemeData getApplicationLDarkTheme() {
     //text theme
     textTheme: TextTheme(
       //Display
-      displayLarge: getBoldStyle(fontSize: FontSize.s32, color: ColorManager.gold),
-      displayMedium: getBoldStyle(fontSize: FontSize.s28, color: ColorManager.gold),
-      displaySmall: getBoldStyle(fontSize: FontSize.s24, color: ColorManager.gold),
+      displayLarge:
+          getBoldStyle(fontSize: FontSize.s32, color: ColorManager.gold),
+      displayMedium:
+          getBoldStyle(fontSize: FontSize.s28, color: ColorManager.gold),
+      displaySmall:
+          getBoldStyle(fontSize: FontSize.s24, color: ColorManager.gold),
 
       //Headline
-      headlineLarge: getSemiBoldStyle(fontSize: FontSize.s20, color: ColorManager.gold),
-      headlineMedium: getSemiBoldStyle(fontSize: FontSize.s18, color: ColorManager.gold),
-      headlineSmall: getSemiBoldStyle(fontSize: FontSize.s16, color: ColorManager.gold),
+      headlineLarge:
+          getSemiBoldStyle(fontSize: FontSize.s20, color: ColorManager.gold),
+      headlineMedium:
+          getSemiBoldStyle(fontSize: FontSize.s18, color: ColorManager.gold),
+      headlineSmall:
+          getSemiBoldStyle(fontSize: FontSize.s16, color: ColorManager.gold),
 
       //Title
       titleLarge: getMediumStyle(fontSize: FontSize.s20),
@@ -269,11 +289,13 @@ ThemeData getApplicationLDarkTheme() {
       bodySmall: getRegularStyle(fontSize: FontSize.s14),
 
       //label
-      labelLarge: getRegularStyle(fontSize: FontSize.s14, color: ColorManager.gold),
+      labelLarge:
+          getRegularStyle(fontSize: FontSize.s14, color: ColorManager.gold),
       //text button
       labelMedium: getRegularStyle(fontSize: FontSize.s12),
       //button label
-      labelSmall: getRegularStyle(fontSize: FontSize.s10, color: ColorManager.darkGrey), //caption
+      labelSmall: getRegularStyle(
+          fontSize: FontSize.s10, color: ColorManager.darkGrey), //caption
     ),
 
     //input decoration theme (text form field)

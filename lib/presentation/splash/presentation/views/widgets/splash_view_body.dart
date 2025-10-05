@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gif/gif.dart';
 import 'package:islamy/app/resources/color_manager.dart';
 import 'package:islamy/presentation/home/view/home_view.dart';
-import 'package:islamy/presentation/splash/presentation/views/widgets/gif_image_splash_view.dart';
-
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -12,28 +9,25 @@ class SplashViewBody extends StatefulWidget {
   State<SplashViewBody> createState() => _SplashViewBodyState();
 }
 
-class _SplashViewBodyState extends State<SplashViewBody> with TickerProviderStateMixin {
-  late final GifController _controller;
+class _SplashViewBodyState extends State<SplashViewBody>
+    with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
     navigateToHome();
-    _controller = GifController(vsync: this);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GifImageSplashView(
-        controller: _controller,
+      body: Center(
+        child: Image.asset(
+          "assets/images/splash.png",
+          width: 250,
+          height: 200,
+        ),
       ),
-      backgroundColor: ColorManager.lightPrimary,
+      backgroundColor: ColorManager.gold,
     );
   }
 

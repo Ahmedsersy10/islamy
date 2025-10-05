@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:islamy/presentation/browseyoutube/view/browseyoutube_screen.dart';
 import 'package:islamy/presentation/home/view/home_view.dart';
 import 'package:islamy/presentation/pillars/view/pillars_screen.dart';
 import 'package:islamy/presentation/splash/presentation/views/splash_view.dart';
@@ -56,8 +55,6 @@ class RoutesGenerator {
                 ));
       case Routes.pillarsRoute:
         return MaterialPageRoute(builder: (_) => const PillarsScreen());
-      case Routes.browsenetRoute:
-        return MaterialPageRoute(builder: (_) => const BrowseYoutubeScreen());
       default:
         return unDefinedRoute();
     }
