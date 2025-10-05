@@ -25,7 +25,10 @@ class SettingsScreen extends StatelessWidget {
             backgroundColor: Theme.of(context).primaryColor,
             title: Text(
               AppStrings.settings.tr(),
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(color: ColorManager.white),
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge
+                  ?.copyWith(color: ColorManager.white),
             ),
           ),
           body: ListView(
@@ -91,11 +94,12 @@ class SettingsScreen extends StatelessWidget {
               ),
               getSeparator(context),
               _settingIndexItem(
-                icon: Icons.star_border,
+                icon: Icons.share,
                 settingName: AppStrings.developer.tr(),
                 trailing: null,
                 onTap: () async {
-                  await launchUrl(getUri("https://github.com/mo7amedaliEbaid/islamy"),
+                  await launchUrl(
+                      getUri("https://github.com/mo7amedaliEbaid/islamy"),
                       mode: LaunchMode.externalApplication);
                 },
                 context: context,
@@ -104,10 +108,6 @@ class SettingsScreen extends StatelessWidget {
               const SizedBox(
                 height: AppSize.s35,
               ),
-              // Image.asset(
-              //   ImageAsset.launcherIcon,
-              //   height: AppSize.s190,
-              // )
             ],
           ),
         );

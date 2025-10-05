@@ -49,24 +49,23 @@ class HomeView extends StatelessWidget {
                       .titleLarge
                       ?.copyWith(color: ColorManager.white),
                 ),
-                leading: IconButton(
-                  onPressed: () => _scaffoldKey.currentState?.openDrawer(),
-                  icon: Icon(
-                    Icons.sort,
-                    size: AppSize.s20.r,
-                  ),
-                ),
+                leading: isThereABookMarkedPage
+                    ? IconButton(
+                        onPressed: () {
+                          Navigator.pushNamed(
+                            context,
+                            Routes.quranRoute,
+                            arguments: {
+                              'quranList': quranList,
+                              'pageNo': cubit.getBookMarkPage(),
+                            },
+                          );
+                        },
+                        icon: const Icon(Icons.bookmark,
+                            color: ColorManager.gold),
+                      )
+                    : SizedBox(),
                 actions: [
-                  IconButton(
-                    icon: const Icon(Icons.search),
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (_) => const SearchScreen(),
-                        ),
-                      );
-                    },
-                  ),
                   IconButton(
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(
@@ -80,13 +79,47 @@ class HomeView extends StatelessWidget {
                       size: AppSize.s20.r,
                     ),
                   ),
+                  IconButton(
+                    onPressed: () => _scaffoldKey.currentState?.openEndDrawer(),
+                    icon: Icon(
+                      Icons.sort,
+                      size: AppSize.s20.r,
+                    ),
+                  ),
                 ]),
-            drawer: const MyDrawer(),
+            endDrawer: const MyDrawer(),
             body: Padding(
               padding: EdgeInsets.all(AppPadding.p12.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  SizedBox(height: AppSize.s16.h),
+                  _HomeCard(
+                    iconPath: ImageAsset.quranIcon,
+                    title: AppStrings.quran.tr(),
+                    darkMode: darkMode,
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => Scaffold(
+                            appBar: AppBar(
+                              title: Text(
+                                AppStrings.quran.tr(),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleLarge
+                                    ?.copyWith(color: ColorManager.white),
+                              ),
+                            ),
+                            body: const Padding(
+                              padding: EdgeInsets.all(8),
+                              child: QuranScreen(),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                   SizedBox(height: AppSize.s16.h),
                   Expanded(
                     child: GridView.count(
@@ -96,48 +129,6 @@ class HomeView extends StatelessWidget {
                       crossAxisSpacing: AppSize.s12.w,
                       childAspectRatio: 1.1,
                       children: [
-                        _HomeCard(
-                          iconPath: ImageAsset.quranIcon,
-                          title: AppStrings.quran.tr(),
-                          darkMode: darkMode,
-                          onTap: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (_) => Scaffold(
-                                  appBar: AppBar(
-                                    title: Text(
-                                      AppStrings.quran.tr(),
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .titleLarge
-                                          ?.copyWith(color: ColorManager.white),
-                                    ),
-                                  ),
-                                  body: const Padding(
-                                    padding: EdgeInsets.all(8.0),
-                                    child: QuranScreen(),
-                                  ),
-                                ),
-                              ),
-                            );
-                          },
-                          trailing: isThereABookMarkedPage
-                              ? IconButton(
-                                  onPressed: () {
-                                    Navigator.pushNamed(
-                                      context,
-                                      Routes.quranRoute,
-                                      arguments: {
-                                        'quranList': quranList,
-                                        'pageNo': cubit.getBookMarkPage(),
-                                      },
-                                    );
-                                  },
-                                  icon: const Icon(Icons.bookmark,
-                                      color: ColorManager.gold),
-                                )
-                              : null,
-                        ),
                         _HomeCard(
                           iconPath: ImageAsset.hadithIcon,
                           title: AppStrings.hadith.tr(),
@@ -216,6 +207,18 @@ class HomeView extends StatelessWidget {
                             );
                           },
                         ),
+                        _HomeCard(
+                          iconPath: ImageAsset.searchIcon,
+                          title: AppStrings.searchInQuran.tr(),
+                          darkMode: darkMode,
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) => const SearchScreen(),
+                              ),
+                            );
+                          },
+                        ),
                       ],
                     ),
                   ),
@@ -234,14 +237,12 @@ class _HomeCard extends StatelessWidget {
   final String title;
   final bool darkMode;
   final VoidCallback onTap;
-  final Widget? trailing;
 
   const _HomeCard({
     required this.iconPath,
     required this.title,
     required this.darkMode,
     required this.onTap,
-    this.trailing,
   });
 
   @override
@@ -259,7 +260,7 @@ class _HomeCard extends StatelessWidget {
         ),
         color: darkMode ? ColorManager.darkGrey : ColorManager.lightPrimary,
         child: Padding(
-          padding: EdgeInsets.all(AppPadding.p12.w),
+          padding: EdgeInsets.all(AppPadding.p16.w),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -280,10 +281,6 @@ class _HomeCard extends StatelessWidget {
                     ?.copyWith(color: ColorManager.white),
                 textAlign: TextAlign.center,
               ),
-              if (trailing != null) ...[
-                SizedBox(height: AppSize.s8.h),
-                trailing!,
-              ],
             ],
           ),
         ),
